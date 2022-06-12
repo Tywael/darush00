@@ -1,12 +1,12 @@
 #include <unistd.h>
-void rush(int x,int y){int n=y;char *s="-o |";while(n-->0){for(int i=x;i>0;i--)if(n==0||n==y-1)write(1,&s[(i==1)||(i==x)],1);else write(1,&s[(i==1)+(i==x)+2],1);write(1,"\n",1);}}
-
+void rush(x, y){char *s="-o |";for(int n=y;n>0;n--){s=(n==y-1)?s+2:s;s=(n==1&y>1)?s-2:s;for(int i=x;i>0;i--)write(1,&s[(i==1)|(i==x)],1);write(1,"\n",1);}}
 int main ()
-{
-    rush(0, 0);
-    rush(1, 1);
-    rush(2, 2);
-    rush(3, 3);
-    rush(4, 4);
+{   
+    int x;
+    int y = 0;
+    while (y++ < 5){
+        x = 0;
+        while (x++ < 5)
+            rush(x, y);}
     return (0);
 }
